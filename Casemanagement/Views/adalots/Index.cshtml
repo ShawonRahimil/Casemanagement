@@ -1,0 +1,47 @@
+﻿@model IEnumerable<Casemanagement.Models.Adalot>
+@{
+    ViewBag.Title = "Index";
+}
+
+@Html.ActionLink("Create","Create","adalots" ,new {@class="btn btn-outline-secondary"})
+<h2>All Adalots</h2>
+
+    <table  class="table table-bordered">
+        <thead >
+            <tr>
+                <td>Name</td>
+       
+                <td>Decription</td>
+              
+            </tr>
+            
+        </thead>
+        <tbody >
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>@item.Name</td>
+
+
+                    <td>@item.Description</td>
+                    <td>
+                        @if (item.logoPath != null)
+                {
+                            <img src="@Url.Content(item.logoPath)" alt="@item.Name"  height="100" width="100"/>
+                }
+                    </td>
+                
+                    <td>
+                        @Html.ActionLink("Edit", "Edit", "adalots", new {@item.Id}, new { @class = "btn btn-outline-primary" })
+
+                        @Html.ActionLink("Delete", "Delete", "adalots", new { @item.Id }, new { @class = "btn btn-outline-danger" })
+                        @Html.ActionLink("Details", "Details", "adalots", new { @class = "btn btn-outline-secondary" })
+                    </td>
+                </tr>
+            
+
+            }
+        </tbody>
+    </table>
+
+

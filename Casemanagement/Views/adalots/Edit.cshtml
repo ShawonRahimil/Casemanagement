@@ -1,0 +1,29 @@
+﻿@model Casemanagement.Models.Adalot
+@{
+    ViewBag.Title = "Edit";
+}
+@Html.ValidationSummary()
+<h2>Edit</h2>
+@using (Html.BeginForm("Edit", "adalots", FormMethod.Post, new { enctype = "multipart/form-data" }))
+{
+
+    <div class="form-control">
+        @Html.HiddenFor(m => m.Id)
+        @Html.HiddenFor(m => m.logoPath)
+        @Html.DisplayNameFor(m => m.Name)
+        @Html.EditorFor(m => m.Name)
+    </div>
+    <div class="form-control">
+        @Html.DisplayNameFor(m => m.Description)
+        @Html.EditorFor(m => m.Description)
+    </div>
+    <div class="form-control">
+      <label>Picture</label>
+        <input type="file" name="Picture" accept="image/*"/>
+    </div>
+
+    <button type="submit" class="btn btn-primary">Submit</button>
+    @Html.ActionLink("Back to Home", "Index", "adalots", new { @class = "btn btn-outline-primary" })
+}
+
+
