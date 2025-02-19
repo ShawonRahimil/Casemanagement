@@ -10,6 +10,7 @@
             AddColumn("dbo.Adalots", "logoPath", c => c.String());
         }
         
+
         public override void Down()
         {
             DropColumn("dbo.Adalots", "logoPath");
